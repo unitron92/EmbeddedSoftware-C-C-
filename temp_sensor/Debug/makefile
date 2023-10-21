@@ -53,34 +53,34 @@ $(wildcard ../makefile.init) \
 $(wildcard ../makefile.targets) \
 
 
-BUILD_ARTIFACT_NAME := temp1
+BUILD_ARTIFACT_NAME := Stm32f429I_temp_sensor
 BUILD_ARTIFACT_EXTENSION := elf
 BUILD_ARTIFACT_PREFIX :=
 BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME)$(if $(BUILD_ARTIFACT_EXTENSION),.$(BUILD_ARTIFACT_EXTENSION),)
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXECUTABLES += \
-temp1.elf \
+Stm32f429I_temp_sensor.elf \
 
 MAP_FILES += \
-temp1.map \
+Stm32f429I_temp_sensor.map \
 
 SIZE_OUTPUT += \
 default.size.stdout \
 
 OBJDUMP_LIST += \
-temp1.list \
+Stm32f429I_temp_sensor.list \
 
 
 # All Target
 all: main-build
 
 # Main-build Target
-main-build: temp1.elf secondary-outputs
+main-build: Stm32f429I_temp_sensor.elf secondary-outputs
 
 # Tool invocations
-temp1.elf temp1.map: $(OBJS) $(USER_OBJS) C:\Users\birdzhan.ali\STM32CubeIDE\workspace_1.11.2\temp1\STM32F429ZITX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-g++ -o "temp1.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\birdzhan.ali\STM32CubeIDE\workspace_1.11.2\temp1\STM32F429ZITX_FLASH.ld" -Wl,-Map="temp1.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Stm32f429I_temp_sensor.elf Stm32f429I_temp_sensor.map: $(OBJS) $(USER_OBJS) D:\Programing\C_Cpp\EmbeddedSoftware-C-C-\temp_sensor\STM32F429ZITX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-g++ -o "Stm32f429I_temp_sensor.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"D:\Programing\C_Cpp\EmbeddedSoftware-C-C-\temp_sensor\STM32F429ZITX_FLASH.ld" -Wl,-Map="Stm32f429I_temp_sensor.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -89,14 +89,14 @@ default.size.stdout: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	@echo 'Finished building: $@'
 	@echo ' '
 
-temp1.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "temp1.list"
+Stm32f429I_temp_sensor.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "Stm32f429I_temp_sensor.list"
 	@echo 'Finished building: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) default.size.stdout temp1.elf temp1.list temp1.map
+	-$(RM) Stm32f429I_temp_sensor.elf Stm32f429I_temp_sensor.list Stm32f429I_temp_sensor.map default.size.stdout
 	-@echo ' '
 
 secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST)
