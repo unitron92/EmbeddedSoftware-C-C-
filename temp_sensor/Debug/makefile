@@ -79,8 +79,8 @@ all: main-build
 main-build: Stm32f429I_temp_sensor.elf secondary-outputs
 
 # Tool invocations
-Stm32f429I_temp_sensor.elf Stm32f429I_temp_sensor.map: $(OBJS) $(USER_OBJS) D:\Programing\C_Cpp\EmbeddedSoftware-C-C-\temp_sensor\STM32F429ZITX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-g++ -o "Stm32f429I_temp_sensor.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"D:\Programing\C_Cpp\EmbeddedSoftware-C-C-\temp_sensor\STM32F429ZITX_FLASH.ld" -Wl,-Map="Stm32f429I_temp_sensor.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Stm32f429I_temp_sensor.elf Stm32f429I_temp_sensor.map: $(OBJS) $(USER_OBJS) D:\Programing\C_Cpp\Cpp_course\EmbeddedSoftware-C-C-\EmbeddedSoftware-C-C-\temp_sensor\STM32F429ZITX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-g++ -o "Stm32f429I_temp_sensor.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"D:\Programing\C_Cpp\Cpp_course\EmbeddedSoftware-C-C-\EmbeddedSoftware-C-C-\temp_sensor\STM32F429ZITX_FLASH.ld" -Wl,-Map="Stm32f429I_temp_sensor.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
